@@ -8,7 +8,10 @@ body {
     color: #303030;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 64px;
+    font-size: 20px;
 }
+
+/*HEADER*/
 
 header {
     position: fixed;
@@ -55,7 +58,7 @@ nav ul li a {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 700;
 }
 
@@ -63,6 +66,8 @@ h2 {
     font-size: 2rem;
     font-weight: 700;
 }
+
+/*TOP SECTION*/
 
 button {
     background-color: #303030;
@@ -82,26 +87,63 @@ button:hover {
     color: #303030;
 }
 
+#first-section {
+    background-color: #D0D0D0;
+    align-items: center;
+}
+
+/*Common elements for different sections*/
+
 .sections {
     display: flex;
     padding: 32px 24px;
 
 }
 
-#first-section {
-    background-color: #D0D0D0;
+.sections-left {
+    flex-basis: 60%;
+    padding-right: 24px;
+}
+
+.sections-left img {
+    width: 100%;
+}
+
+.sections-right {
+    flex-basis: 40%;
+}
+
+/*Second section*/
+
+.our-sub-section {
+    display: flex;
+    padding: 16px;
     align-items: center;
 }
 
-#first-section img {
-    width: 60%;
-    margin-right: 24px;
+our-sub-section img {
+    flex-basis: 35%;
 }
 
-#first-section-text {
-    width: 30%;
+.our-sub-section-text {
+    flex-basis: 65%;
+    margin-left: 45px;
 }
 
-#second-section img {
-    width: 60%;
+.blue a {
+    color: #0096FF;
+    text-decoration: none;
+}
+
+.sections-right div.our-sub-section:nth-child(2) {
+    border-top: 5px double #D0D0D0;
+}
+
+.sections-right div:nth-child(3) {
+    background-color: #D0D0D0;
+}
+
+div.sections-right {
+    border-left: 2px solid #D0D0D0;
+
 }
