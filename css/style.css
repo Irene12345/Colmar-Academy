@@ -97,7 +97,6 @@ button:hover {
 .sections {
     display: flex;
     padding: 32px 24px;
-
 }
 
 .sections-left {
@@ -146,4 +145,36 @@ our-sub-section img {
 div.sections-right {
     border-left: 2px solid #D0D0D0;
 
+}
+
+/*Third section*/
+
+#third-section {
+    background-color: #f0f0f0;
+    display: block;
+
+}
+
+#third-section h1 {
+    text-align: center;
+}
+
+#courses {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.course-square {
+    background-color: white;
+    margin-bottom: 32px;
+    margin-right: 32px;    
+}
+
+.course-square img {
+    width: 100%;
+}
+
+.course-square div {
+    padding: 16px 16px;
 }
