@@ -11,9 +11,15 @@ body {
     font-size: 20px;
 }
 
-/*HEADER*/
+/*Header desktop*/
 
-header {
+@media only screen and (max-width: 480px){
+    header.desktop{
+         display: none;
+    }
+ }
+
+header.desktop {
     position: fixed;
     top: 0;
     left: 0;
@@ -66,6 +72,33 @@ h2 {
     font-size: 2rem;
     font-weight: 700;
 }
+
+/*Header mobile*/
+
+@media only screen and (min-width: 481px) {
+    header.mobile {
+        display: none;
+    }
+}
+
+header.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: white;
+    height: 64px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header.mobile nav, ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
 
 /*TOP SECTION*/
 
