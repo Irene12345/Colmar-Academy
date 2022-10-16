@@ -34,10 +34,10 @@ h2 {
 /*Header desktop*/
 
 @media only screen and (min-width: 951px) {
-    div.mobile {
+    div.mobile, .mobile {
         display: none;
     }
-    div.desktop {
+    div.desktop, .desktop {
         z-index: 1;
     }
 
@@ -88,10 +88,10 @@ div.desktop nav ul li a {
 /*Header mobile*/
 
 @media only screen and (max-width: 950px){
-    div.desktop {
+    div.desktop, .desktop {
          display: none;
     }
-    div.mobile {
+    div.mobile, .mobile {
         z-index: 1;
     }
 }  
@@ -153,15 +153,22 @@ button:hover {
     padding: 32px 24px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
     .sections {
         flex-wrap: wrap;
+        padding: 32px 16px;
     }
 }
 
 .sections-left {
     flex: 2 1 60%;
     padding-right: 24px;
+}
+
+@media only screen and (max-width: 950px){
+    .sections-left {
+        padding-right: 0px;
+    }
 }
 
 .sections-left img {
@@ -172,22 +179,50 @@ button:hover {
     flex: 1 2 40%;
 }
 
+/*NOT WORKING, HOW TO SHOW ITEMS IN A COLUMN MAX-WIDTH 950PX OR 
+AT THE SAME TIME THAT NAV MENU GOES TO MOBILE VERSION*/
+@media only screen and (max-width: 950px) {
+    .sections-right {
+        display: flex;
+        flex-flow: column wrap;
+    }
+}
+
 
 /*Common elements for 2nd & 4th sections*/
 
 .our-sub-section {
     display: flex;
     padding: 16px;
-    align-items: center;
-}
-
-our-sub-section img {
-    flex-basis: 35%;
+    align-items: flex-start;
+    
 }
 
 .our-sub-section-text {
     flex-basis: 65%;
     margin-left: 45px;
+}
+
+@media only screen and (max-width: 950px){
+    .our-sub-section-text {
+    margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .our-sub-section {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 64px;
+    }
+
+    .our-sub-section div, .our-sub-section div img {
+        width: 100%;
+    }
+
+     
 }
 
 
@@ -197,6 +232,8 @@ our-sub-section img {
     color: #0096FF;
     text-decoration: none;
 }
+
+@media only screen and (min-width: 951px){
 
 .sections-right div.our-sub-section:nth-child(2) {
     border-top: 5px double #D0D0D0;
@@ -208,6 +245,7 @@ our-sub-section img {
 
 div.sections-right {
     border-left: 2px solid #D0D0D0;
+}
 }
 
 #orientation {
@@ -246,7 +284,6 @@ div.sections-right {
     }  
 }
 
-
 .course-square {
     background-color: white;
     margin-bottom: 32px;
@@ -259,6 +296,38 @@ div.sections-right {
 
 .course-square div {
     padding: 16px 16px;
+}
+
+/*Mobile 3rd section:*/
+
+/*show only h2's as links*/
+@media only screen and (max-width: 950px){
+    .course-square img, .course-square div p {
+        display: none;
+    }
+
+/*background color*/
+#third-section {
+    background-color: white;
+}
+
+/*Display "courses" column*/
+#courses {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+/**/
+.course-square {
+    background-color: #f0f0f0;
+    margin-bottom: 8px;
+    margin-right: 0;
+    padding-left: 16px;
+    
+}
+
 }
 
 /*Fourth section*/
