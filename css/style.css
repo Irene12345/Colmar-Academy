@@ -21,9 +21,21 @@ body {
     font-size: 20px;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 h1 {
     font-size: 3.5rem;
     font-weight: 700;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 h2 {
@@ -37,7 +49,7 @@ h2 {
     div.mobile, .mobile {
         display: none;
     }
-    div.desktop, .desktop {
+    div.desktop {
         z-index: 1;
     }
 
@@ -91,7 +103,7 @@ div.desktop nav ul li a {
     div.desktop, .desktop {
          display: none;
     }
-    div.mobile, .mobile {
+    div.mobile {
         z-index: 1;
     }
 }  
@@ -119,9 +131,48 @@ div.desktop nav ul li a {
         text-decoration: none; 
     }
 
+/*Common elements for different sections*/
+
+.sections {
+    display: flex;
+    padding: 32px 24px;
+}
+
+@media only screen and (max-width: 950px) {
+    .sections {
+        flex-wrap: wrap;
+        padding: 0;
+        margin-bottom: 32px;
+    }
+}
 
 
-/*First section*/
+/*First section: Learn something new*/
+
+/*sections-left and right initially shared with other sections, update names?*/
+.sections-left-learn {
+    flex: 2 1 60%;
+    padding-right: 24px;
+}
+
+.sections-left-learn img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 950px){
+    .sections-left-learn {
+        padding-right: 0;
+    }
+
+    .sections-right-learn {
+        margin-left: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+.sections-right-learn {
+    flex: 1 2 40%;
+}
 
 button {
     background-color: #303030;
@@ -146,29 +197,11 @@ button:hover {
     align-items: center;
 }
 
-/*Common elements for different sections*/
-
-.sections {
-    display: flex;
-    padding: 32px 24px;
-}
-
-@media only screen and (max-width: 950px) {
-    .sections {
-        flex-wrap: wrap;
-        padding: 32px 16px;
-    }
-}
+/*Second section: Keep practicing*/
 
 .sections-left {
     flex: 2 1 60%;
     padding-right: 24px;
-}
-
-@media only screen and (max-width: 950px){
-    .sections-left {
-        padding-right: 0px;
-    }
 }
 
 .sections-left img {
@@ -179,55 +212,6 @@ button:hover {
     flex: 1 2 40%;
 }
 
-/*NOT WORKING, HOW TO SHOW ITEMS IN A COLUMN MAX-WIDTH 950PX OR 
-AT THE SAME TIME THAT NAV MENU GOES TO MOBILE VERSION*/
-@media only screen and (max-width: 950px) {
-    .sections-right {
-        display: flex;
-        flex-flow: column wrap;
-    }
-}
-
-
-/*Common elements for 2nd & 4th sections*/
-
-.our-sub-section {
-    display: flex;
-    padding: 16px;
-    align-items: flex-start;
-    
-}
-
-.our-sub-section-text {
-    flex-basis: 65%;
-    margin-left: 45px;
-}
-
-@media only screen and (max-width: 950px){
-    .our-sub-section-text {
-    margin-left: 0;
-    }
-}
-
-@media only screen and (max-width: 950px) {
-    .our-sub-section {
-        flex-wrap: wrap;
-        flex-direction: column;
-        padding: 0;
-        width: 100%;
-        margin-bottom: 64px;
-    }
-
-    .our-sub-section div, .our-sub-section div img {
-        width: 100%;
-    }
-
-     
-}
-
-
-/*Second section*/
-
 .blue a {
     color: #0096FF;
     text-decoration: none;
@@ -235,32 +219,76 @@ AT THE SAME TIME THAT NAV MENU GOES TO MOBILE VERSION*/
 
 @media only screen and (min-width: 951px){
 
-.sections-right div.our-sub-section:nth-child(2) {
+    .sections-right div.our-sub-section:nth-child(2) {
     border-top: 5px double #D0D0D0;
-}
+    }
 
-.sections-right div:nth-child(3) {
+    .sections-right div:nth-child(3) {
     background-color: #D0D0D0;
-}
+    }
 
-div.sections-right {
+    div.sections-right {
     border-left: 2px solid #D0D0D0;
-}
+    }
 }
 
 #orientation {
     padding-top: 0;
 }
 
-/*Third section*/
+@media only screen and (max-width: 950px) {
+    /*Hide on mobile display*/
+    #second-section .sections-left {
+        display: none;
+    }
+}
+
+/*Initially shared Common elements for 2nd & 4th sections, change names?*/
+
+.our-sub-section {
+    display: flex;
+    padding: 16px;
+    align-items: flex-start; 
+}
+
+.our-sub-section-text {
+    flex-basis: 65%;
+    margin-left: 45px;
+}
+
+@media only screen and (max-width: 950px) {
+    .our-sub-section {
+        display: block; /*For mobile, if I change to display: block (instead of flex) it works, but I don't understand why*/
+        padding: 0;
+        width: 100%;
+        margin-bottom: 44px;
+    }
+
+    .our-sub-section div, .our-sub-section div img {
+        width: 100%;
+    }
+
+    .our-sub-section-text {
+        margin-left: 32px;
+    }
+
+    /*Make margin smaller between "Our guest lecture" and "Start learning"*/
+    .our-sub-section:nth-child(3) {
+        margin-bottom: 0;
+    }
+}
+
+/*Third section: Start learning*/
 
 #third-section {
     background-color: #f0f0f0;
-    display: block;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 #third-section h1 {
     text-align: center;
+    width: 100%;
 }
 
 #courses {
@@ -278,9 +306,9 @@ div.sections-right {
     }  
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) and (max-width: 1536px) {
     .course-square {
-        flex-basis: 30%;
+        flex-basis: 40%;
     }  
 }
 
@@ -298,39 +326,45 @@ div.sections-right {
     padding: 16px 16px;
 }
 
-/*Mobile 3rd section:*/
+/*Mobile*/
 
-/*show only h2's as links*/
+/*Show only h2's as links*/
+
 @media only screen and (max-width: 950px){
     .course-square img, .course-square div p {
         display: none;
     }
 
-/*background color*/
-#third-section {
+    #third-section {
     background-color: white;
-}
+    border-top: solid 1px #D0D0D0;
+    padding-top: 32px
+    }
+
 
 /*Display "courses" column*/
-#courses {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    margin: 0;
+    #courses {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        margin: 0;
+        width: 100%;
+    }
+
+    .course-square {
+        background-color: #f0f0f0;
+        margin-bottom: 8px;
+        margin-right: 0;
+        padding-left: 16px;
+    }
+
+    #third-section h1 {
+        width: 100%;
+        margin-top: 0;
+    }
 }
 
-/**/
-.course-square {
-    background-color: #f0f0f0;
-    margin-bottom: 8px;
-    margin-right: 0;
-    padding-left: 16px;
-    
-}
-
-}
-
-/*Fourth section*/
+/*Fourth section: Thesis exhibit*/
 
 #fourth-section h1 {
     text-align: center;
@@ -340,7 +374,7 @@ div.sections-right {
     flex-direction: column;
 }
 
-#left-right-container {
+.thesis-container {
     display: flex;
     flex-direction: row;
 }
@@ -360,6 +394,41 @@ video {
 
 #fisma {
     background-color: #f0f0f0;
+}
+
+.sub-section-thesis {
+    display: flex;
+    padding: 16px;
+    align-items: flex-start;
+}
+
+.sub-section-thesis-text {
+    flex-basis: 65%;
+    margin-left: 45px;
+}
+
+/*Mobile*/
+
+@media only screen and (max-width: 950px) {
+    .thesis-container {
+        flex-direction: column;
+    }
+
+    #fourth-section h1 {
+        margin-top: 0;
+    }
+
+    .sections-right-video {
+        display: none;
+    }
+
+    .sections-left-video h2, .sections-left-video p {
+        display: none;
+    }
+
+    .sections-left-video {
+        padding-right: 0;
+    }
 }
 
 /**Footer**/
@@ -383,4 +452,18 @@ footer ul li {
 
 footer ul li a {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 950px) {
+    footer {
+        border: none;
+    }
+    
+    footer ul {
+        display: none;
+    }
+
+    footer p {
+        margin-top: 0;
+    }
 }
